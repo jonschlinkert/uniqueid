@@ -1,9 +1,9 @@
 # uniqueid [![NPM version](https://badge.fury.io/js/uniqueid.svg)](http://badge.fury.io/js/uniqueid)
 
-
 > Generate a unique sequential ID. Optionally pass a prefix, suffix, or multiplier.
 
 ## Install
+
 #### Install with [npm](npmjs.org):
 
 ```bash
@@ -20,17 +20,18 @@ npm test
 
 ```js
 var uniqueId = require('uniqueid');
-console.log(uniqueId('abc'));
-//=> ['a', 'b', 'c'];
+
+console.log(uniqueId('abc')); //=> "abc1"
 ```
 
 ## API
+
 ### [id](index.js#L32)
 
 Generate a unique ID.
 
-* `options` **{Object}**: Optionally pass a `prefix`, `suffix` and/or `multiplier.    
-* `returns` **{String}**: The unique id.  
+* `options` **{String|Object}**: Optionally pass a `prefix`, `suffix` and/or `multiplier.
+* `returns` **{String}**: The unique id.
 
 Optionally pass a prefix to prepend, a suffix to append, or a
 multiplier to use on the ID.
@@ -53,12 +54,12 @@ To reset the `id` to zero, do `id.reset()`.
 ## Author
 
 **Jon Schlinkert**
- 
+
 + [github/jonschlinkert](https://github.com/jonschlinkert)
-+ [twitter/jonschlinkert](http://twitter.com/jonschlinkert) 
++ [twitter/jonschlinkert](http://twitter.com/jonschlinkert)
 
 ## License
-Copyright (c) 2014 Jon Schlinkert, contributors.  
+Copyright (c) 2014 Jon Schlinkert, contributors.
 Released under the MIT license
 
 ***
