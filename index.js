@@ -30,7 +30,11 @@ var count = 0;
  */
 
 var id = module.exports = function (options) {
-  options = options || {};
+  if (typeof options === 'string') {
+    options = { prefix: options };
+  } else if (options == null) {
+    options = {};
+  }
 
   var prefix = options.prefix;
   var suffix = options.suffix;

@@ -40,4 +40,12 @@ describe('uniqueId', function () {
       assert.equal(uniqueId({multiplier: 3}), i * 3);
     }
   });
+
+  it('should generate with prefix when a string is used as options:', function () {
+    uniqueId.reset();
+
+    for(var i = 1; i < 25; i++) {
+      assert.equal(uniqueId('prefix_'), 'prefix_' + i);
+    }
+  });
 });
