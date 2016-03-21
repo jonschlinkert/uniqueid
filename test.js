@@ -1,43 +1,40 @@
-/*!
- * unique-id <https://github.com/jonschlinkert/unique-id>
- *
- * Copyright (c) 2014 Jon Schlinkert, contributors.
- * Licensed under the MIT License
- */
+/* global describe, it */
 
-'use strict';
+'use strict'
 
-var assert = require('assert');
-var uniqueId = require('./');
+var assert = require('assert')
+var uniqueid = require('./')
 
 describe('uniqueId', function () {
-  it('should generate a unique id', function () {
-    for(var i = 1; i < 25; i++) {
-      assert.equal(uniqueId(), i);
+  it('should generate sequences', function () {
+    var seq = uniqueid()
+
+    for (var i = 0; i < 20; i++) {
+      assert.equal(String(i), seq())
     }
-  });
+  })
 
-  it('should generate a unique id with a prefix:', function () {
-    uniqueId.reset();
+  it('should accept prefixes', function () {
+    var seq = uniqueid('pre')
 
-    for(var i = 1; i < 25; i++) {
-      assert.equal(uniqueId({prefix: 'apple_'}), 'apple_' + i);
+    for (var i = 0; i < 20; i++) {
+      assert.equal('pre' + i, seq())
     }
-  });
+  })
 
-  it('should generate a unique id with a suffix:', function () {
-    uniqueId.reset();
+  it('should accept suffixes', function () {
+    var seq = uniqueid(null, 'suf')
 
-    for(var i = 1; i < 25; i++) {
-      assert.equal(uniqueId({suffix: '_orange'}), i + '_orange');
+    for (var i = 0; i < 20; i++) {
+      assert.equal(i + 'suf', seq())
     }
-  });
+  })
 
-  it('should generate a unique id using the given multiplier:', function () {
-    uniqueId.reset();
+  it('should accept prefixes and suffixes', function () {
+    var seq = uniqueid('pre', 'suf')
 
-    for(var i = 1; i < 25; i++) {
-      assert.equal(uniqueId({multiplier: 3}), i * 3);
+    for (var i = 0; i < 20; i++) {
+      assert.equal('pre' + i + 'suf', seq())
     }
-  });
-});
+  })
+})

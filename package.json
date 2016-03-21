@@ -1,6 +1,6 @@
 {
   "name": "uniqueid",
-  "description": "Generate a unique sequential ID. Optionally pass a prefix, suffix, or multiplier.",
+  "description": "Generate sequential IDs, with optional prefix or suffix",
   "version": "0.1.0",
   "homepage": "https://github.com/jonschlinkert/uniqueid",
   "author": {
@@ -14,31 +14,30 @@
   "bugs": {
     "url": "https://github.com/jonschlinkert/uniqueid/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/jonschlinkert/uniqueid/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "main": "index.js",
-  "engines": {
-    "node": ">=0.10.0"
-  },
+  "typings": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "scripts": {
-    "test": "mocha -R spec"
+    "lint": "standard",
+    "test-spec": "mocha -R spec",
+    "test-cov": "istanbul cover _mocha -- -R spec",
+    "test": "npm run lint && npm run test-cov"
   },
   "devDependencies": {
-    "verb-tag-jscomments": ">= 0.2.0",
-    "verb": ">= 0.2.6",
-    "mocha": "*"
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "standard": "^6.0.8"
   },
   "keywords": [
-    "docs",
-    "documentation",
-    "generate",
-    "generator",
-    "markdown",
-    "templates",
-    "verb"
+    "unique",
+    "uniqueid",
+    "sequence",
+    "id",
+    "numeric",
+    "prefix"
   ]
 }

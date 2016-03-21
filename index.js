@@ -1,54 +1,19 @@
-'use strict';
-
-
-var count = 0;
+'use strict'
 
 /**
- * Generate a unique ID.
+ * Generate a function for sequences of re-usable IDs.
  *
- * Optionally pass a prefix to prepend, a suffix to append, or a
- * multiplier to use on the ID.
- *
- * ```js
- * uniqueId(); //=> '25'
- *
- * uniqueId({prefix: 'apple_'});
- * //=> 'apple_10'
- *
- * uniqueId({suffix: '_orange'});
- * //=> '10_orange'
- *
- * uniqueId({multiplier: 5});
- * //=> 5, 10, 15, 20...
- * ```
- *
- * To reset the `id` to zero, do `id.reset()`.
- *
- * @param  {Object} `options` Optionally pass a `prefix`, `suffix` and/or `multiplier.
- * @return {String} The unique id.
- * @api public
+ * @param prefix {string}
+ * @param suffix {string}
+ * @returns {Function}
  */
+module.exports = function (prefix, suffix) {
+  var id = 0
 
-var id = module.exports = function (options) {
-  options = options || {};
+  prefix = prefix || ''
+  suffix = suffix || ''
 
-  var prefix = options.prefix;
-  var suffix = options.suffix;
-
-  var id = ++count * (options.multiplier || 1);
-
-  if (prefix == null) {
-    prefix = '';
+  return function () {
+    return prefix + (id++) + suffix
   }
-
-  if (suffix == null) {
-    suffix = '';
-  }
-
-  return String(prefix) + id + String(suffix);
-};
-
-
-id.reset = function() {
-  return count = 0;
-};
+}
