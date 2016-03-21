@@ -1,7 +1,7 @@
 {
   "name": "uniqueid",
   "description": "Generate sequential IDs, with optional prefix or suffix",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/jonschlinkert/uniqueid",
   "author": {
     "name": "Jon Schlinkert",
